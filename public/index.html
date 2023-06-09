@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ChatWebApp</title>
+    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="../js/client.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <img class="logo" src="logo.webp" alt="LOGO">
+        <p id="navp">Press:  " Windows key" + "." (period)  in Windows </p>
+    </nav>  <br>  
+    <div class="main">
+        <div class="chats">
+            <div class="left message"> 
+                <span id="leftname">namehere</span>
+                <div class="realmessage">msg here jvn jkev jker v,e r,vkje ,rvj ke,rs mv</div>
+             </div>
+        </div>
+        <form  id="send-form">
+            <i class="fas fa-smile fa-lg" id="smile" onclick="smileclick()"></i>
+            <!-- <img id="msglogo" src="logo.webp" alt="msglogo" > -->
+            <input type="text" id="txt" placeholder="Message">
+            <input type="submit" value="Send" id="btn">
+        </form>
+       </div>
+<script>
+    const smile = document.querySelector('#smile');
+    function smileclick(){
+        const navp = document.querySelector('#navp');
+        navp.style.visibility = "visible";
+       setTimeout(()=>{
+        navp.style.visibility = "hidden";
+       }, 2000);
+
+    }
+</script>
+</body>
+</html>
