@@ -1,4 +1,4 @@
-const socket = io('http://localhost:8000');
+const socket = io('https://chatapp-avop.onrender.com/');
 
 const nav = document.querySelector(".nav");
 const form = document.getElementById('send-form');
