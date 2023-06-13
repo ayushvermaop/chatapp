@@ -1,4 +1,5 @@
-const socket = io('https://chatapp-avop.onrender.com/');
+// const socket = io('https://chatapp-avop.onrender.com/');
+const socket = io('http://localhost:8000');
 
 const nav = document.querySelector(".nav");
 const form = document.getElementById('send-form');
@@ -7,8 +8,7 @@ const chatbox = document.querySelector('.chats');
 const main = document.querySelector('.main');
 
 let namee = prompt("Enter your name to join");
-if( namee == null || namee.length < 3 || namee.length > 20){
-    // alert('Access Denied');
+if( namee == null || namee.length < 3 || namee.length > 20){3
     main.remove();
     const h1 = document.createElement('h1');
     h1.classList.add('h1class');
@@ -16,7 +16,6 @@ if( namee == null || namee.length < 3 || namee.length > 20){
     nav.append(h1);
 }
 else{
-    // alert('Access Granted');
     socket.emit('new-user-joined', namee);
 }
 
@@ -69,27 +68,29 @@ socket.on('receive', (data)=>{
     msgElem.append(realmessage);
     msgElem.classList.add('message');
     msgElem.classList.add('left');
-    chatbox.append(msgElem);
-    chatbox.scrollTop = chatbox.scrollHeight;
-});
-
-
-
-
-
-
+})
 
 
 socket.on('userleft', (data)=>{
     const msgElem = document.createElement('div');
-    // const pElem = document.createElement('div');
     let leftmessage = `${data.name} left the Chat`;
     msgElem.innerText = leftmessage;
     msgElem.classList.add('userleft');
     chatbox.append(msgElem);
     chatbox.scrollTop = chatbox.scrollHeight;
-})
+});
 
+socket.on('users-list', (users)=>{
+    const ol = document.querySelector('#ol');
+    ol.innerText = "";
+    const users_array = Object.values(users);
+    for(i=0;i< users_array.length ; i++){
+        const username = users_array[i];
+        const li = document.createElement('li');
+        li.innerText = users_array[i];
+        ol.append(li);
+    }
+})
 /*
 
 const appendMsg = (message, position)=>{

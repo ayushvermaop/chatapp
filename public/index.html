@@ -8,28 +8,48 @@
     <title> ChatWebApp</title>
     <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script defer src="../js/client.js"></script>
+    <script defer src="../client.js"></script>
 </head>
 <body>
     <nav class="nav">
         <img class="logo" src="logo.webp" alt="LOGO">
-        <p id="navp">Press:  " Windows key" + "." (period)  in Windows </p>
-    </nav>  <br>  
-    <div class="main">
-        <div class="chats">
-            <!-- <div class="left message"> 
-                <span id="leftname">namehere</span>
-                <div class="realmessage">msg here jvn jkev jker v,e r,vkje ,rvj ke,rs mv</div>
-             </div> -->
-        </div>
-        <form  id="send-form">
-            <i class="fas fa-smile fa-lg" id="smile" onclick="smileclick()"></i>
-            <!-- <img id="msglogo" src="logo.webp" alt="msglogo" > -->
-            <input type="text" id="txt" placeholder="Message">
-            <input type="submit" value="Send" id="btn">
-        </form>
-       </div>
-<script>
+        <p id="navp">Press:  "Windows key" + "." (period)  in Windows </p>
+    </nav>  <br> 
+    <div class="box">
+        <div class="title"> <p >   Talker-Talk </p></div>
+        
+         <div class="both">
+            <div class="usersinfo">
+                <span id="uonline">Users Online:</span> <br>
+                <ol id="ol">
+                    <!-- <li>tus</li> -->
+                </ol>
+            </div>
+           <div class="main">
+            <div class="chats"> 
+                <!-- 
+                <div class="right message">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+                <div class="left message">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+                <div class="userleft ">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+                <div class="right message">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+                <div class="left message">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+                <div class="userleft ">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+                <div class="right message">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+                <div class="left message">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+                <div class="userleft ">cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div> 
+            -->
+                
+            </div>
+            <form  id="send-form">
+                <i class="fas fa-smile fa-lg" id="smile" onclick="smileclick()"></i>
+                <!-- <img id="msglogo" src="logo.webp" alt="msglogo" > -->
+                <input t pe="text" id="txt" placeholder="Message">
+                <input type="submit" value="Send" id="btn">
+            </form>
+           </div>
+    </div>
+    </div> 
+       <script>
     const smile = document.querySelector('#smile');
     function smileclick(){
         const navp = document.querySelector('#navp');
